@@ -8,6 +8,7 @@ import Todo from './Todo';
 function App(props) {
 
   let [ newTodoFormVisible, setNewTodoFormVisible ] = React.useState(false);
+  let [ editTodo, setEditTodo ] = React.useState(false);
 
   const handleAddTodo = (todo) => {
     props.addTodo(todo);
@@ -18,6 +19,11 @@ function App(props) {
     props.removeTodo(todoID);
   }
 
+  const toggleEditMode = () => {
+    setEditTodo(!editTodo);
+    // TODO - RESUME HERE
+  }
+
   let allTodos = props.todos.map((val,i) => {
     return (
       <Todo
@@ -25,6 +31,7 @@ function App(props) {
         todoId={val.id}
         text={val.task}
         removeTodo={handleRemoveTodo}
+        toggleEditMode={toggleEditMode}
       />
     )
   });

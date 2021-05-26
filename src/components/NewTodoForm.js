@@ -1,8 +1,13 @@
 import React from 'react';
 
-export default function NewTodoForm(props) {
+export default function NewTodoForm({ 
+  addTodo, 
+  editing, 
+  placeholder = editing ? '' : 'type here', 
+  initialValue = editing ? initialValue : '' 
+}) {
 
-  let [ todoInput, setTodoInput ] = React.useState('');
+  let [ todoInput, setTodoInput ] = React.useState(initialValue);
 
   const handleChange = (e) => {
     setTodoInput(e.target.value);
@@ -11,7 +16,7 @@ export default function NewTodoForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todoInput !== '') {
-      props.addTodo(todoInput);
+      addTodo(todoInput);
       e.target.reset();
       setTodoInput('');
     }
@@ -24,7 +29,7 @@ export default function NewTodoForm(props) {
           type='text'
           name='task'
           id='task'
-          placeholder='add a task here'
+          placeholder={placeholder}
           onChange={handleChange}
           value={todoInput}
         />
