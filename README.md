@@ -1,2 +1,2 @@
-# Basic react-redux setup
-It's a todo list: classic move
+# react redux todos
+super basic react redux project

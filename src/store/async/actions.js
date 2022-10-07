@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios'
 const ROOT_URL = 'http://www.omdbapi.com/?apikey=64081808&' 
 
 export const GET_MOVIES = 'GET_MOVIES';

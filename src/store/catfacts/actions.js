@@ -1,6 +1,6 @@
+import axios from 'axios'
 export const GET_FACTS = 'GET_FACTS';
 export const LOAD_FACTS_TO_STATE = 'LOAD_FACTS_TO_STATE';
-const axios = require('axios');
 
 export function getFacts(facts) {
   return dispatch => {
